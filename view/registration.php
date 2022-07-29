@@ -38,6 +38,11 @@
 		<span id="passwordErrorMsg"></span>
 		<br><br>
 
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email">
+		<span id="unameErrorMsg"></span>
+		<br><br>
+
 		<label for="role">Role</label>
 		<select name="role" id="role">
 			<option selected disabled> Select and option</option>
