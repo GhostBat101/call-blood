@@ -56,7 +56,9 @@
 		<br><br>
 
 		<input type="submit" name="submit">
+		<a href="../view/login.php"><input type="button" name="go back" value="Go back"></a>
 	</form>
+	
 	<br>
 	<?php 
 
