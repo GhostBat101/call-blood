@@ -18,13 +18,11 @@
 			$isValid = validate($username, $password);
 
 			if ($isValid) {
-				/*echo "Login Successful";*/
 				$_SESSION['login'] = "";
 				$_SESSION['username'] = $username;
 				header("Location: ../view/dashboard.php");
 			}
 			else {
-				/*echo "Login Failed";*/
 				$_SESSION['login'] = "Login Failed...!";
 				header("Location: ../view/login.php");
 			}
