@@ -21,20 +21,26 @@
 		$_SESSION['msg'] = "";
 
 		if (empty($username) or empty($password) or empty($firstname) or empty($lastname) or empty($gender) or empty($email) or empty($role)) {
-			$_SESSION['msg'] = "Please fill up the form properly";
+			$_SESSION['msg'] = "Please fill up the form";
 			header("Location: ../view/registration.php");
 		}
 		else {
 			$isReg = register($username, $password, $firstname, $lastname, $gender, $email, $role);
 
-			if ($isReg) {
-				$_SESSION['msg'] = "";
-				$_SESSION['username'] = $username;
-				header("Location: ../view/login.php");
+			if (checkusername($username)){
+				$_SESSION['msg'] = "Username taken...!";
+				header("Location: ../view/registration.php");
 			}
 			else {
-				$_SESSION['msg'] = "Registration Failed...!";
-				header("Location: ../view/registration.php");
+				if ($isReg) {
+					$_SESSION['msg'] = "";
+					$_SESSION['username'] = $username;
+					header("Location: ../view/login.php");
+				}
+				else {
+					$_SESSION['msg'] = "Registration Failed...!";
+					header("Location: ../view/registration.php");
+				}
 			}
 		}
 	}

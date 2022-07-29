@@ -55,7 +55,7 @@
 		<span id= "roleErr"></span>
 		<br><br>
 
-		<input type="submit" name="submit">
+		<input type="submit" name="register">
 		<a href="../view/login.php"><input type="button" name="go back" value="Go back"></a>
 	</form>
 	
