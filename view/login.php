@@ -24,6 +24,7 @@
 		<br><br>
 
 		<input type="submit" name="submit">
+		<a href="../view/registration.php"><input type="button" name="registration" value="Register"></a>
 	</form>
 
 	<?php 
