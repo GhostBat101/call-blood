@@ -21,11 +21,12 @@
 	function checkusername($username){
 		$conn = connect();
 		if ($conn){
-			$sql = "SELECT id FROM users WHERE username = '" . $username . "'";
+			$sql = "SELECT * FROM users WHERE username = '" . $username . "'";
 			$res = mysqli_query($conn, $sql);
 
-			if (mysqli_num_rows($res) === 1) 
+			if (mysqli_num_rows($res) > 0){	
 				return true;
+			}
 			return false;
 		}
 	}
