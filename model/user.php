@@ -18,6 +18,18 @@
 		}
 	}
 
+	function checkusername($username){
+		$conn = connect();
+		if ($conn){
+			$sql = "SELECT id FROM users WHERE username = '" . $username . "'";
+			$res = mysqli_query($conn, $sql);
+
+			if (mysqli_num_rows($res) === 1) 
+				return true;
+			return false;
+		}
+	}
+
 	function register($username, $password, $firstname, $lastname, $gender, $email, $role){
 		$conn = connect();
 
