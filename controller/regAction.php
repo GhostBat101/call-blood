@@ -16,13 +16,13 @@
 		$firstname = test_input($_POST['fname']);
 		$lastname = test_input($_POST['lname']);
 		$gender = isset($_POST['gender']) ? test_input($_POST['gender']) : "";
-		$email = test_input($_POST('email'));
+		$email = isset($_POST['email']) ? test_input($_POST['email']) : "";
 		$role = isset($_POST['role']) ? test_input($_POST['role']) : "";
 		$_SESSION['msg'] = "";
 
 		if (empty($username) or empty($password) or empty($firstname) or empty($lastname) or empty($gender) or empty($email) or empty($role)) {
 			$_SESSION['msg'] = "Please fill up the form properly";
-				header("Location: ../view/login.php");
+			header("Location: ../view/registration.php");
 		}
 		else {
 			$isValid = validate($username, $password);
