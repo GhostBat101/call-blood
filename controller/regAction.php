@@ -33,7 +33,6 @@
 				header("Location: ../view/welcome.php");
 			}
 			else {
-				/*echo "Login Failed";*/
 				$_SESSION['msg'] = "Login Failed...!";
 				header("Location: ../view/login.php");
 			}
