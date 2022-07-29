@@ -40,7 +40,7 @@
 
 		<label for="email">Email:</label>
 		<input type="email" name="email" id="email">
-		<span id="unameErrorMsg"></span>
+		<span id="emailErrorMsg"></span>
 		<br><br>
 
 		<label for="role">Role</label>
