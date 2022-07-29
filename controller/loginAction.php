@@ -2,7 +2,7 @@
 
 	session_start();
 
-	require "../model/User.php";
+	require "../model/user.php";
 	
 	if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
@@ -21,7 +21,7 @@
 				/*echo "Login Successful";*/
 				$_SESSION['msg'] = "";
 				$_SESSION['username'] = $username;
-				header("Location: ../view/welcome.php");
+				header("Location: ../view/dashboard.php");
 			}
 			else {
 				/*echo "Login Failed";*/
