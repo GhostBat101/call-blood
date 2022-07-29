@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +57,7 @@
 
 		<input type="submit" name="submit">
 	</form>
-
+	<br>
 	<?php 
 
 		if (isset($_SESSION['msg']) and !empty($_SESSION['msg'])) {
