@@ -25,15 +25,16 @@
 			header("Location: ../view/registration.php");
 		}
 		else {
-			$isReg = register($username, $password, $firstname, $lastname, $gender, $email, $role);
 
-			if (checkusername($username)){
+			if (!checkusername($username)){
 				$_SESSION['msg'] = "Username taken...!";
 				header("Location: ../view/registration.php");
 			}
 			else {
+				$isReg = register($username, $password, $firstname, $lastname, $gender, $email, $role);
+
 				if ($isReg) {
-					$_SESSION['msg'] = "";
+					$_SESSION['login'] = "Registration complete. Please login.";
 					$_SESSION['username'] = $username;
 					header("Location: ../view/login.php");
 				}
