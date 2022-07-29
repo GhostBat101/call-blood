@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	require "../model/User.php";
+	require "../model/user.php";
 
 	if ($_SERVER['REQUEST_METHOD'] === "POST"){
 		function test_input($data) {
@@ -25,16 +25,16 @@
 			header("Location: ../view/registration.php");
 		}
 		else {
-			$isValid = validate($username, $password);
+			$isReg = register($username, $password, $firstname, $lastname, $gender, $email, $role);
 
-			if ($isValid) {
+			if ($isReg) {
 				$_SESSION['msg'] = "";
 				$_SESSION['username'] = $username;
-				header("Location: ../view/welcome.php");
+				header("Location: ../view/login.php");
 			}
 			else {
-				$_SESSION['msg'] = "Login Failed...!";
-				header("Location: ../view/login.php");
+				$_SESSION['msg'] = "Registration Failed...!";
+				header("Location: ../view/registration.php");
 			}
 		}
 	}
