@@ -23,7 +23,7 @@
 		<span id="passwordErrorMsg"></span>
 		<br><br>
 
-		<input type="submit" name="submit">
+		<input type="submit" name="submit" value="Login">
 		<a href="../view/registration.php"><input type="button" name="registration" value="Register"></a>
 	</form>
 
