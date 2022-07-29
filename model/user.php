@@ -25,9 +25,9 @@
 			$res = mysqli_query($conn, $sql);
 
 			if (mysqli_num_rows($res) > 0){	
-				return true;
+				return false;
 			}
-			return false;
+			return true;
 		}
 	}
 
