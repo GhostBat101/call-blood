@@ -2,6 +2,120 @@
 	
 	require "../model/connect.php";
 
+	function firstname($username){
+		$conn = connect();
+
+		if ($conn){
+			$sql = "SELECT firstname FROM users WHERE username = '" . $username . "'";
+
+			$res = mysqli_query($conn, $sql);
+			
+			while($row = $res->fetch_assoc()) {
+			    return $row["firstname"];
+			  }
+		}
+	}
+
+	function changefirstname($username, $firstname){
+		$conn = connect();
+
+		if ($conn){
+			$sql = $conn->prepare("UPDATE users SET firstname = ? WHERE username = ?");
+			$sql->bind_param("ss", $fname, $uname);
+
+			$fname = $firstname;
+			$uname = $username;
+			$sql->execute();
+			return true;
+		}
+		return false;
+	}
+
+	function oldpass($username){
+		$conn = connect();
+
+		if ($conn){
+			$sql = "SELECT password FROM users WHERE username = '" . $username . "'";
+
+			$res = mysqli_query($conn, $sql);
+			
+			while($row = $res->fetch_assoc()) {
+			    return $row["password"];
+			  }
+		}
+	}
+
+	function lastname($username){
+		$conn = connect();
+
+		if ($conn){
+			$sql = "SELECT lastname FROM users WHERE username = '" . $username . "'";
+
+			$res = mysqli_query($conn, $sql);
+			
+			while($row = $res->fetch_assoc()) {
+			    return $row["lastname"];
+			  }
+		}
+	}
+
+	function changelastname($username, $lastname){
+		$conn = connect();
+
+		if ($conn){
+			$sql = $conn->prepare("UPDATE users SET lastname = ? WHERE username = ?");
+			$sql->bind_param("ss", $lname, $uname);
+
+			$lname = $lastname;
+			$uname = $username;
+			$sql->execute();
+			return true;
+		}
+		return false;
+	}
+
+	function gender($username){
+		$conn = connect();
+
+		if ($conn){
+			$sql = "SELECT gender FROM users WHERE username = '" . $username . "'";
+
+			$res = mysqli_query($conn, $sql);
+			
+			while($row = $res->fetch_assoc()) {
+			    return $row["gender"];
+			  }
+		}
+	}
+
+	function role($username){
+		$conn = connect();
+
+		if ($conn){
+			$sql = "SELECT role FROM users WHERE username = '" . $username . "'";
+
+			$res = mysqli_query($conn, $sql);
+			
+			while($row = $res->fetch_assoc()) {
+			    return $row["role"];
+			  }
+		}
+	}
+
+	function email($username){
+		$conn = connect();
+
+		if ($conn){
+			$sql = "SELECT email FROM users WHERE username = '" . $username . "'";
+
+			$res = mysqli_query($conn, $sql);
+			
+			while($row = $res->fetch_assoc()) {
+			    return $row["email"];
+			  }
+		}
+	}
+
 	function validate($username, $password) {
 
 		$conn = connect();
