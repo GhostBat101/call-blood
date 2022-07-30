@@ -18,7 +18,7 @@
 		$oldlastname = lastname($username);
 		$oldemail = email($username);
 
-		$newemail = test_input($_POST['email']);
+		$newemail = isset($_POST['email']) ? test_input($_POST['email']) : "";
 		$newfirstname = test_input($_POST['firstname']);
 		$newlastname = test_input($_POST['lastname']);
 
@@ -76,12 +76,13 @@
 				}
 			}
 
-			if ($newpass != $oldpass){
+			if ($newemail != $oldemail){
 				if (!empty($password)){
 					if ($password == $oldpass){
-						if ($newpass == $conpass){
-							$isChanged = changepass($username, $newpass);
+						if (!empty($newemail) and checkemail($newemail)){
+							$isChanged = changeemail($username, $newemail);
 							if ($isChanged){
+								$_SESSION['email'] = $newemail;
 								$_SESSION['stat'] = "Changes saved";
 								header("Location: ../view/profile.php");
 							}
@@ -90,9 +91,41 @@
 								header("Location: ../view/profile.php");
 							}
 						}
-						else{
-							$_SESSION['stat'] = "Confirm the New password again";
+						else {
+							$_SESSION['stat'] = "Email not Valid";
 							header("Location: ../view/profile.php");
+						}
+					}
+					else {
+						$_SESSION['stat'] = "Please provide correct password to make changes";
+						header("Location: ../view/profile.php");
+					}
+				}
+				else {
+					$_SESSION['stat'] = "Please provide password to make changes";
+					header("Location: ../view/profile.php");
+				}
+			}
+
+			if ($newpass != $oldpass){
+				if (!empty($password)){
+					if ($password == $oldpass){
+						if (!empty($newpass)){
+							if ($newpass == $conpass){
+								$isChanged = changepass($username, $newpass);
+								if ($isChanged){
+									$_SESSION['stat'] = "Changes saved";
+									header("Location: ../view/profile.php");
+								}
+								else {
+									$_SESSION['stat'] = "Changes failed";
+									header("Location: ../view/profile.php");
+								}
+							}
+							else{
+								$_SESSION['stat'] = "Confirm the New password again";
+								header("Location: ../view/profile.php");
+							}
 						}
 					}
 					else {
