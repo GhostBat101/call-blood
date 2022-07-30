@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+	session_start();
+ 	if (!empty($_SESSION['username'])) {
+ 		header("Location: dashboard.php");
+ 	}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -31,7 +31,7 @@
             <input type="text" autocomplete="on" name="lastname" id="lname" value="<?php echo $_SESSION['lastname']; ?>"><br><br>
 
             <label for="email">Email</label>
-            <input type="text" autocomplete="on" name="email" id="email" value="<?php echo $_SESSION['email']; ?>"><br><br>
+            <input type="email" autocomplete="on" name="email" id="email" value="<?php echo $_SESSION['email']; ?>"><br><br>
 
 
             <label for="opass">Password</label>
@@ -53,7 +53,7 @@
 				}
             ?>
         </p>
-	</form>
+	</form><br><br>
 </body>
 <footer>
 	<?php include("../view/footer.php"); ?>
