@@ -2,7 +2,8 @@
  	session_start();
  	if (!isset($_SESSION['username']) or empty($_SESSION['username'])) {
  		header("Location: login.php");
- 	}  
+ 	}
+ 	$username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,11 @@
 </head>
 <body>
 
-	<h1>Welcome</h1>
+	<h1>Welcome <?php echo $username; ?></h1>
+
+	<br>
+
+	<a href="../view/profile.php"> Profile </a>
 
 	<br><br>
 
