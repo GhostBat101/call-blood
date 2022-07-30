@@ -25,21 +25,26 @@
 			header("Location: ../view/registration.php");
 		}
 		else {
-
-			if (!checkusername($username)){
-				$_SESSION['msg'] = "Username taken...!";
+			if (!checkemail($email)){
+				$_SESSION['msg'] = "Please fill up the form properly";
 				header("Location: ../view/registration.php");
 			}
 			else {
-				$isReg = register($username, $password, $firstname, $lastname, $gender, $email, $role);
-
-				if ($isReg) {
-					$_SESSION['login'] = "Registration complete. Please login.";
-					header("Location: ../view/login.php");
+				if (!checkusername($username)){
+					$_SESSION['msg'] = "Username taken...!";
+					header("Location: ../view/registration.php");
 				}
 				else {
-					$_SESSION['msg'] = "Registration Failed...!";
-					header("Location: ../view/registration.php");
+					$isReg = register($username, $password, $firstname, $lastname, $gender, $email, $role);
+
+					if ($isReg) {
+						$_SESSION['login'] = "Registration complete. Please login.";
+						header("Location: ../view/login.php");
+					}
+					else {
+						$_SESSION['msg'] = "Registration Failed...!";
+						header("Location: ../view/registration.php");
+					}
 				}
 			}
 		}
