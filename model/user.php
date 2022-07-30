@@ -130,6 +130,27 @@
 			  }
 		}
 	}
+	function checkemail($email){
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			return true;
+		}
+		return false;
+	}
+
+	function changeemail($username, $newemail){
+		$conn = connect();
+
+		if ($conn){
+			$sql = $conn->prepare("UPDATE users SET email = ? WHERE username = ?");
+			$sql->bind_param("ss", $e, $uname);
+
+			$e = $newemail;
+			$uname = $username;
+			$sql->execute();
+			return true;
+		}
+		return false;
+	}
 
 	function validate($username, $password) {
 
@@ -191,12 +212,6 @@
 
 			$uid = $id;
 			$stmt->execute();
-
-			/*$stmt->bind_result($i, $u, $p, $e);
-
-			while($stmt->fetch) {
-				echo $i . " " . $u;
-			}*/
 		}
 	}
 
