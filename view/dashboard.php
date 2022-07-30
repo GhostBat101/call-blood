@@ -21,4 +21,7 @@
 	<a href="../controller/Logout.php">Logout</a>
 
 </body>
+<footer>
+	<?php include("../view/footer.php"); ?>
+</footer>
 </html>
