@@ -45,6 +45,21 @@
 		}
 	}
 
+	function changepass($username, $newpass){
+		$conn = connect();
+
+		if ($conn){
+			$sql = $conn->prepare("UPDATE users SET password = ? WHERE username = ?");
+			$sql->bind_param("ss", $pass, $uname);
+
+			$pass = $newpass;
+			$uname = $username;
+			$sql->execute();
+			return true;
+		}
+		return false;
+	}
+
 	function lastname($username){
 		$conn = connect();
 
