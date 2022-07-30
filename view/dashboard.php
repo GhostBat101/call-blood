@@ -11,19 +11,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Welcome</title>
+	<?php include("../view/header.php"); ?>
 </head>
 <body>
 
 	<h1>Welcome <?php echo $username; ?></h1>
 
-	<br>
-
-	<a href="../view/profile.php"> Profile </a>
-
 	<br><br>
-
-
-	<a href="../controller/Logout.php">Logout</a>
 
 </body>
 <footer>
