@@ -5,11 +5,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Registration</title>
+	<script src="../view/js/register_validation.js"></script>
 </head>
 <body>
 	<h1>Register</h1>
 
-	<form method="post" action="../controller/regAction.php" novalidate>
+	<form method="post" action="../controller/regAction.php" novalidate onsubmit="return validateReg(this);">
 
 		<label for="fname">First name:</label>
 		<input type="text" name="fname" id="fname">
@@ -25,8 +26,7 @@
 		<input type="radio" name="gender" id="male" value="male">
 		<label for="male">Male</label>
 		<input type="radio" name="gender" id="female" value="female">
-		<label for="female">Female</label>
-		<br>
+		<label for="female">Female</label><br><br>
 		<span id = "genderErrMsg"></span><br><br>
 
 		<label for="uname">Username:</label>
@@ -46,7 +46,7 @@
 
 		<label for="role">Role</label>
 		<select name="role" id="role">
-			<option selected disabled> Select and option</option>
+			<option selected value=""> Select and option</option>
 			<option value="receiver">Receiver</option>
 			<option value="donor">Donor</option>
 			<option value="staff">Staff</option>
@@ -55,7 +55,7 @@
 		<span id= "roleErr"></span>
 		<br><br>
 
-		<input type="submit" name="register">
+		<input type="submit" name="register" value="Register">
 		<a href="../view/login.php"><input type="button" name="go back" value="Go back"></a>
 	</form>
 	
