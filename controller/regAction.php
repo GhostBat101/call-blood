@@ -35,7 +35,6 @@
 
 				if ($isReg) {
 					$_SESSION['login'] = "Registration complete. Please login.";
-					$_SESSION['username'] = $username;
 					header("Location: ../view/login.php");
 				}
 				else {
