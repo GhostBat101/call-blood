@@ -10,6 +10,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Profile</title>
+	<?php include("../view/header.php"); ?>
 </head>
 <body>
 	<p>
@@ -45,7 +46,7 @@
 
             
         </fieldset><br>
-        <input type="submit" name="confirm" value="Confirm">
+        <input type="submit" name="confirm" value="Confirm"> <br>
         <p>
             <?php
             	if (isset($_SESSION['stat']) or !empty($_SESSION['stat'])) {
