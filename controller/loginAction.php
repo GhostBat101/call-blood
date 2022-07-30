@@ -20,6 +20,11 @@
 			if ($isValid) {
 				$_SESSION['login'] = "";
 				$_SESSION['username'] = $username;
+				$_SESSION['firstname'] = firstname($username);
+				$_SESSION['lastname'] = lastname($username);
+				$_SESSION['gender'] = gender($username);
+				$_SESSION['email'] = email($username);
+				$_SESSION['role'] = role($username);
 				header("Location: ../view/dashboard.php");
 			}
 			else {
