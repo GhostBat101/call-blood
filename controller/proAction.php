@@ -25,6 +25,7 @@
 		$newpass = test_input($_POST['newpas']);
 		$conpass = test_input($_POST['conpas']);
 
+
 		if ($newfirstname !=$oldfirstname or $newlastname != $oldlastname or $newemail != $oldemail or !empty($newpass)){
 			if ($newfirstname != $oldfirstname){
 				if (!empty($password)){
