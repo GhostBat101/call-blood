@@ -51,6 +51,7 @@
             <?php
             	if (isset($_SESSION['stat']) or !empty($_SESSION['stat'])) {
 					echo $_SESSION['stat'];
+					$_SESSION['stat'] = "";
 				}
             ?>
         </p>
