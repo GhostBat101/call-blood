@@ -64,6 +64,7 @@
 
 		if (isset($_SESSION['msg']) and !empty($_SESSION['msg'])) {
 			echo $_SESSION['msg'];
+			$_SESSION['msg'] = "";
 		}
 	?>
 </body>

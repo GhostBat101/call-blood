@@ -37,6 +37,7 @@
 
 		if (isset($_SESSION['login']) and !empty($_SESSION['login'])) {
 			echo $_SESSION['login'];
+			$_SESSION['login'] = "";
 		}
 	?>
 

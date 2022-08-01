@@ -10,7 +10,6 @@
 		$password = sanitize($_POST['password']);
 		$_SESSION['login'] = "";
 		if (empty($username) or empty($password)) {
-			/*echo "Please fill up the form properly";*/
 			$_SESSION['login'] = "Please fill up the form properly";
 				header("Location: ../view/login.php");
 		}
