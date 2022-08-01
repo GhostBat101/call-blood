@@ -215,12 +215,12 @@
 		}
 	}
 
-	function getAll() {
+	function getAllReq() {
 
 		$conn = connect();
 
 		if ($conn) {
-			$sql = "SELECT id, username, password, email FROM users";
+			$sql = "SELECT username, firstname, lastname, gender, bloodgroup, day FROM requests";
 
 			$res = mysqli_query($conn, $sql);
 
