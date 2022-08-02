@@ -7,9 +7,6 @@
  		header("Location: ../controller/requestData.php");
  	}
  	$users = $_SESSION['requestdata'];
- 	var_dump($users);
-
- 	printf("%s", $users["username"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,17 +44,16 @@
 				<th>Blood Group</th>
 				<th>Date</th>
 			</tr>
-			<?php foreach ($users as $user) { ?>
-			<tr>
-				<td> <?php echo $user ->username; ?> </td>
-				<td> <?php echo $user->firstname; ?> </td>
-				<td> <?php echo $user->lastname; ?> </td>
-				<td> <?php echo $user->gender; ?> </td>
-				<td><?php echo  $user->bloodgroup; ?></td>
-				<td><?php echo  $user->day; ?></td>
-			</tr>
-			<?php }
+			<?php 
+			foreach ($users as $user => $row) {
+				echo "<tr>";
+				foreach ($row as $key){
+					echo "<td>".$key."</td>";
+				}
+				echo "</tr>";
+			}
 			?>
+			
 		</tbody>
 	</table>
 	</fieldset><br>
