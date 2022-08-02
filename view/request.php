@@ -60,7 +60,7 @@
 			?>
 		</tbody>
 	</table>
-	</fieldset>
+	</fieldset><br>
 </body>
 <footer>
 	<?php include("../view/footer.php"); ?>
