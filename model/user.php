@@ -215,6 +215,57 @@
 		}
 	}
 
+	function checkrole($username){
+		$conn = connect();
+
+		if ($conn) {
+			$sql = "SELECT role FROM users WHERE username = '" . $username . "'";
+			$res = mysqli_query($conn, $sql);
+
+			$users = array();
+
+			if ($res->num_rows > 0) {
+				while($row = $res->fetch_assoc()) {
+					array_push($users, $row);
+				}
+
+				return $users;
+			}
+		}
+		return array();
+	}
+	function checkreq($username){
+		$conn = connect();
+		if ($conn){
+			$sql = "SELECT * FROM requests WHERE username = '" . $username . "'";
+			$res = mysqli_query($conn, $sql);
+
+			if (mysqli_num_rows($res) > 0){	
+				return false;
+			}
+			return true;
+		}
+	}
+	function requestblood($username, $firstname, $lastname, $gender, $blood, $date){
+		$conn = connect();
+
+		if ($conn){
+			$sql = $conn->prepare("INSERT INTO requests (username, firstname, lastname, gender, bloodgroup, day) VALUES (?, ?, ?, ?, ?, ?)");
+			$sql->bind_param("ssssss", $uname,$fname, $lname, $g, $bld, $day);
+
+			$uname = $username;
+			$fname = $firstname;
+			$lname = $lastname;
+			$g = $gender;
+			$bld = $blood;
+			$day = $date;
+
+			$sql->execute();
+
+			return true;
+		}
+		return false;
+	}
 	function getAllReq() {
 
 		$conn = connect();
