@@ -24,14 +24,19 @@
 	</style>
 </head>
 <body>
-	<br><br>
-	<fieldset>
-		<legend>Complete the form to request: </legend>
-		<form>
-			
-		</form>
-	</fieldset>
-	<br><br>
+	
+	<?php
+		$roles = $_SESSION['checkrole'];
+		foreach ($roles as $role => $row) {
+			foreach ($row as $key) {
+				if ($key == "receiver"){
+					require("../view/requestF.php");
+				}
+			}
+		}
+
+	?>
+
 	<fieldset>
 		<legend>Request List</legend>
 		<table id="tbstyle">
@@ -62,4 +67,4 @@
 	<?php include("../view/footer.php"); ?>
 </footer>
 </html>
-<?php $_SESSION['requestdata'] = ""; ?>
+<?php $_SESSION['requestdata'] = "";?>
