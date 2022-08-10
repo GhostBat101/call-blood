@@ -7,5 +7,7 @@
 
 	$_SESSION['requestdata'] = $reqestdata;
 
+	$_SESSION['checkrole'] = checkrole($_SESSION['username']);
+
 	header("Location: ../view/request.php");
 ?>
