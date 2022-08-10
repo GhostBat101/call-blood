@@ -17,15 +17,15 @@
             flag = "";
 
             if (pForm.firstname.value == "") {
-                document.getElementById("fnameErrMsg").innerHTML = "Please fill up the firstname";
+                document.getElementById("fnameErrMsg").innerHTML = "Firstname can't be empty";
                 flag = "Empty";
             }
             if (pForm.lastname.value == "") {
-                document.getElementById("lnameErrMsg").innerHTML = "Please fill up the lastname";
+                document.getElementById("lnameErrMsg").innerHTML = "Lastname can't be empty";
                 flag = "Empty";
             }
             if (pForm.email.value == "" || pForm.email.value == null) {
-                document.getElementById("emailErrMsg").innerHTML = "Please fill up the email";
+                document.getElementById("emailErrMsg").innerHTML = "Email can't be empty";
                 flag = "Empty";
             }
 

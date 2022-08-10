@@ -29,8 +29,8 @@
 		<input type="radio" name="gender" id="male" value="male">
 		<label for="male">Male</label>
 		<input type="radio" name="gender" id="female" value="female">
-		<label for="female">Female</label><br><br>
-		<span id = "genderErrMsg"></span><br><br>
+		<label for="female">Female</label><br>
+		<span id = "genderErrMsg"></span><br>
 
 		<label for="uname">Username:</label>
 		<input type="text" name="uname" id="uname">

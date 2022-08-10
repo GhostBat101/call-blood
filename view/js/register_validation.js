@@ -22,7 +22,7 @@ function validateReg(pForm) {
 	}
 
 	if (pForm.gender.value === null || pForm.gender.value === "") {
-		document.getElementById("genderErrMsg").innerHTML = "Please choose a gender";
+		document.getElementById("genderErrMsg").innerHTML = "Please choose a gender<br><br>";
 		flag = "Empty";
 	}
 
