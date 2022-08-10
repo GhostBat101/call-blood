@@ -2,6 +2,62 @@
 	
 	require "../model/connect.php";
 
+	function validateAll($username, $firstname, $lastname, $gender, $email, $role){
+		$conn = connect();
+
+		if ($conn) {
+
+			$sql = "SELECT id FROM users WHERE username = '" . $username . "' and firstname = '" . $firstname . "' and lastname = '" . $lastname . "' and gender = '" . $gender . "' and email = '" . $email . "' and role = '" . $role . "'";
+
+			$res = mysqli_query($conn, $sql);
+
+			if (mysqli_num_rows($res) === 1) 
+				return true;
+			return false;
+		}
+	}
+
+	function feedback($username, $head, $body){
+		$conn = connect();
+
+		if ($conn){
+			$sql = $conn->prepare("INSERT INTO feedback (username, head, body) VALUES (?, ?, ?)");
+			$sql->bind_param("sss", $uname,$hd, $bd);
+
+			$uname = $username;
+			$hd = $head;
+			$bd = $body;
+
+			$sql->execute();
+
+			return true;
+		}
+		return false;
+	}
+
+	function ShowFeedback(){
+		$conn = connect();
+
+		if ($conn) {
+			$sql = "SELECT * FROM feedback";
+
+			$res = mysqli_query($conn, $sql);
+
+			$users = array();
+
+			if ($res->num_rows > 0) {
+				while($row = $res->fetch_assoc()) {
+					array_push($users, $row);
+				}
+
+				return $users;
+			}
+		}
+
+		return array();
+	}
+
+
 	function firstname($username){
 		$conn = connect();
 
@@ -168,6 +224,19 @@
 		}
 	}
 
+	function checkappointment($username){
+		$conn = connect();
+		if ($conn){
+			$sql = "SELECT * FROM requests WHERE username = '" . $username . "'";
+			$res = mysqli_query($conn, $sql);
+
+			if (mysqli_num_rows($res) > 0){	
+				return true;
+			}
+			return false;
+		}
+	}
+
 	function checkusername($username){
 		$conn = connect();
 		if ($conn){
@@ -246,6 +315,25 @@
 			return true;
 		}
 	}
+
+	function help($username, $head, $body){
+		$conn = connect();
+
+		if ($conn){
+			$sql = $conn->prepare("INSERT INTO help (username, heading, body) VALUES (?, ?, ?)");
+			$sql->bind_param("sss", $uname,$heading, $bd);
+
+			$uname = $username;
+			$heading = $head;
+			$bd = $body;
+
+			$sql->execute();
+
+			return true;
+		}
+		return false;
+	}
+
 	function requestblood($username, $firstname, $lastname, $gender, $blood, $date){
 		$conn = connect();
 
@@ -266,12 +354,86 @@
 		}
 		return false;
 	}
+
+	function getAllDon(){
+		$conn = connect();
+
+		if ($conn) {
+			$sql = "SELECT username, firstname, lastname, gender, bloodgroup, day FROM donates";
+
+			$res = mysqli_query($conn, $sql);
+
+			$users = array();
+
+			if ($res->num_rows > 0) {
+				while($row = $res->fetch_assoc()) {
+					array_push($users, $row);
+				}
+
+				return $users;
+			}
+		}
+
+		return array();
+	}
+
 	function getAllReq() {
 
 		$conn = connect();
 
 		if ($conn) {
 			$sql = "SELECT username, firstname, lastname, gender, bloodgroup, day FROM requests";
+
+			$res = mysqli_query($conn, $sql);
+
+			$users = array();
+
+			if ($res->num_rows > 0) {
+				while($row = $res->fetch_assoc()) {
+					array_push($users, $row);
+				}
+
+				return $users;
+			}
+		}
+
+		return array();
+	}
+
+	function accept($username){
+		$conn = connect();
+
+		if ($conn){
+
+			$sql = $conn->prepare("DELETE FROM donates WHERE username = ?");
+			$sql->bind_param("s", $uname);
+			$uname = $username;
+			$sql->execute();
+			return true;
+		}
+		return false;
+	}
+
+	function canceled($username){
+		$conn = connect();
+
+		if ($conn){
+
+			$sql = $conn->prepare("DELETE FROM requests WHERE username = ?");
+			$sql->bind_param("s", $uname);
+			$uname = $username;
+			$sql->execute();
+			return true;
+		}
+		return false;
+	}
+
+	function appointment() {
+
+		$conn = connect();
+
+		if ($conn) {
+			$sql = "SELECT username, firstname, lastname, gender, bloodgroup, day, apointment_time FROM appointments";
 
 			$res = mysqli_query($conn, $sql);
 

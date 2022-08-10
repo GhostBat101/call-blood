@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login</title>
 	<script src="js/login_validation.js"></script>
+	<?php include("../view/2ndheader.php"); ?>
 </head>
 <body>
 
@@ -30,8 +31,8 @@
 		<br><br>
 
 		<input type="submit" name="submit" value="Login">
-		<a href="../view/registration.php"><input type="button" name="registration" value="Register"></a>
-	</form>
+		<a href="../view/forgot.php"><input type="button" name="forgot" value="Forgot Password"></a>
+	</form><br><br>
 
 	<?php 
 
@@ -41,5 +42,8 @@
 		}
 	?>
 
-</body>
+</body><br><br><br><br>
+<footer>
+	<?php include("../view/footer.php"); ?>
+</footer>
 </html>

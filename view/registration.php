@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Registration</title>
 	<script src="../view/js/register_validation.js"></script>
+	<link href="css/style1.css" rel="stylesheet" type="text/css">
+	<!-- <link rel="stylesheet" href="../view/templete/style.css"> -->
+	<?php include("../view/2ndheader.php"); ?>
 </head>
 <body>
 	<h1>Register</h1>
@@ -55,8 +58,7 @@
 		<span id= "roleErr"></span>
 		<br><br>
 
-		<input type="submit" name="register" value="Register">
-		<a href="../view/login.php"><input type="button" name="go back" value="Go back"></a>
+		<input class="button button1" type="submit" name="register" value="Register">
 	</form>
 	
 	<br>
@@ -68,4 +70,7 @@
 		}
 	?>
 </body>
+<footer>
+	<?php include("../view/footer.php"); ?>
+</footer>
 </html>
